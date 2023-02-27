@@ -1,10 +1,17 @@
-import dotenv from "dotenv"
+import dotnev from "dotenv"
 import server from "./config/server.js"
 
-dotenv.config()
+/*
+This file contains the server and the eviroment variables
+*/
 
-const port = process.env.PORT1 || process.env.PORT2
+// Configure the eviroment variables
+dotnev.config() 
 
-server.listen(port, ()=>{
+// It uses PORT2 as backup port in case PORT1 is used by another application
+const port = process.env.PORT1 || process.env.PORT2 
+
+//Listens to the server and uses a callback function to display the connection message 
+server.listen(port , ()=>{
     console.log("Listening on port " + port)
 })
