@@ -11,4 +11,15 @@ const router = express.Router();
 router.get("/workouts", (req, res) => {
   res.status(200).json("Hello World");
 });
+router.post("/workouts", (req, res) => {
+  res.status(200).json("Workout added successfully");
+});
+
+router.put("/workouts", (req, res) => {
+  res.status(200).json("Workout edited successfully");
+})
+
+router.delete("/workouts", (req, res) => {
+  res.status(200).json("Workout deleted successfully");
+})
 export default router;
