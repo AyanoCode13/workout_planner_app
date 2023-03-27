@@ -1,5 +1,6 @@
 import dotnev from "dotenv"
 import server from "./config/server.js"
+import mongoose from "mongoose" 
 
 /*
 This file contains the server and the eviroment variables

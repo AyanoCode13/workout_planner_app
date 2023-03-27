@@ -1,5 +1,4 @@
 import express from "express";
-import workouts from "../db/workouts.js"
 
 /*
 This file contains the routes configuration. 
@@ -10,21 +9,21 @@ The response object represents the information sent by the server
 
 const router = express.Router();
 router.get("/workouts", (req, res) => {
-  res.status(200).json(workouts.find(workout=>workout._id === req.query._id));
+  res.status(200).json();
 });
+
 router.post("/workouts", ({body}, res) => {
-  workouts.push(body)
-  res.status(200).json(workouts);
+
+  res.status(200).json();
+});
+router.get("/test", ({body, params, query}, res) => {
+  res.status(200).json();
 });
 
 router.put("/workouts", ({body, query}, res) => {
-  console.log(body)
-  console.log(query)
-  let updated_workout = workouts.find(workout=>workout._id === query._id) // identifying the wokrout to edit
-  updated_workout = body // edit the workouts
-  const updated_workouts = workouts.filter(workout=>workout._id !== query._id)
+ 
 
-  res.status(200).json([...updated_workouts, updated_workout]);
+  res.status(200).json("Workout Edited");
 })
 
 router.delete("/workouts", ({query}, res) => {
