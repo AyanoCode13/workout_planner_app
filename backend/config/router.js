@@ -6,28 +6,14 @@ Each route may contain a action, a request (req) object and a respones (res) obj
 The request object represents the external information received from the server
 The response object represents the information sent by the server
 */
+import { getWorkouts, addWorkout, editWorkout, deleteWorkout } from "../controllers/WorkoutsController.js";
 
 const router = express.Router();
-router.get("/workouts", (req, res) => {
-  res.status(200).json();
-});
+router.get("/workouts", getWorkouts);
 
-router.post("/workouts", ({body}, res) => {
+router.post("/workouts", addWorkout);
 
-  res.status(200).json();
-});
-router.get("/test", ({body, params, query}, res) => {
-  res.status(200).json();
-});
+router.put("/workouts", editWorkout)
 
-router.put("/workouts", ({body, query}, res) => {
- 
-
-  res.status(200).json("Workout Edited");
-})
-
-router.delete("/workouts", ({query}, res) => {
-  console.log({query})
-  res.status(200).json("Workout deleted successfully");
-})
+router.delete("/workouts",deleteWorkout)
 export default router;

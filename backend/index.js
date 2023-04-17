@@ -13,6 +13,7 @@ dotnev.config()
 const port = process.env.PORT1 || process.env.PORT2 
 
 //Listens to the server and uses a callback function to display the connection message 
-server.listen(port , ()=>{
+server.listen(port , async ()=>{
+    await mongoose.connect(process.env.DATABASE_URL)
     console.log("Listening on port " + port)
 })
